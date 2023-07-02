@@ -1,0 +1,11 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+.main-movie-container {
+  margin: 3vh auto;
+  width: 80vw;
+  height: 90vh;
+  border: 1px solid black;
+}
