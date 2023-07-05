@@ -4,7 +4,7 @@ import "./searchbar.css";
 //image imports
 import searchIcon from "../../assets/images/search-icon.png";
 
-export default function Searchbar() {
+export default function Searchbar({ handleInput }) {
   return (
     <div>
       <div className="searchbar-container">
@@ -13,6 +13,9 @@ export default function Searchbar() {
           <input
             type="text"
             placeholder="Search Movies, Directors, etc."
+            onChange={(event) => {
+              handleInput(event);
+            }}
           ></input>
         </div>
       </div>
