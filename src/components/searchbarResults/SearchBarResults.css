@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   width: 20vw;
-  height: 5vh;
+  height: 7vh;
   border: 1px solid black;
 }
 
@@ -19,11 +19,18 @@
 }
 
 .movie-result img {
-  height: 2vh;
+  height: 5vh;
   margin-left: 2%;
   margin-right: 2%;
 }
 
 .movie-result span {
   flex-grow: 2;
+}
+
+.overlapping-div {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 9999;
 }

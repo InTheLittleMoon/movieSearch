@@ -13,12 +13,12 @@ function App() {
   //held states
   const [timer, setTimer] = useState(null);
   const [movieArray, setMovieArray] = useState([]);
-  const [filteredMovieArray, setFilteredMovieArray] = useState([]);
+  const [chosenMovie, setChosenMovie] = useState([]);
 
   //requires two calls, one for movie titles and one for the data itself using the movie.id
   const movieDataFetch = async (movieID) => {
     const apiKey = "b43b4108368573ebcb7eca94ea7ee146";
-    let fetchUrl = `https://api.themoviedb.org/3/movie/${movieID}&api_key=${apiKey}`;
+    let fetchUrl = `https://api.themoviedb.org/3/movie/${movieID}?api_key=${apiKey}`;
 
     let data = await fetch(fetchUrl)
       .then((res) => res.json())
@@ -55,11 +55,6 @@ function App() {
   };
 
   const handleInput = (query) => {
-    //should only start looking after 3 letters
-    if (query.length < 3) {
-      return;
-    }
-
     if (timer) {
       clearTimeout(timer);
     }
@@ -72,14 +67,24 @@ function App() {
     );
   };
 
+  //movie result clicked
+  const handleResultClick = (movieID) => {
+    let movie = movieDataFetch(movieID);
+    setChosenMovie(movie);
+  };
+
   // useEffect(() => {
   //   movieTitleFetch();
   // }, []);
 
   return (
     <div className="main-movie-container">
-      <Searchbar handleInput={handleInput} movieArray={movieArray} />
-      <MovieDataContainer />
+      <Searchbar
+        handleInput={handleInput}
+        movieArray={movieArray}
+        handleResultClick={handleResultClick}
+      />
+      <MovieDataContainer chosenMovie={chosenMovie} />
     </div>
   );
 }

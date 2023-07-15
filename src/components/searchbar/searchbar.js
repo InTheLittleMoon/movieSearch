@@ -7,7 +7,11 @@ import searchIcon from "../../assets/images/search-icon.png";
 //components
 import SearchBarResults from "../searchbarResults/SearchBarResults";
 
-export default function Searchbar({ handleInput, movieArray }) {
+export default function Searchbar({
+  handleInput,
+  movieArray,
+  handleResultClick,
+}) {
   return (
     <div className="searchbar-container">
       <div className="searchbar">
@@ -20,7 +24,12 @@ export default function Searchbar({ handleInput, movieArray }) {
           }}
         ></input>
       </div>
-      {movieArray && <SearchBarResults movieArray={movieArray} />}
+      {movieArray && (
+        <SearchBarResults
+          movieArray={movieArray}
+          handleResultClick={handleResultClick}
+        />
+      )}
     </div>
   );
 }
