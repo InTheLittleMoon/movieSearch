@@ -68,8 +68,9 @@ function App() {
   };
 
   //movie result clicked
-  const handleResultClick = (movieID) => {
-    let movie = movieDataFetch(movieID);
+  const handleResultClick = async (movieID) => {
+    let movie = await movieDataFetch(movieID);
+    console.log(movie);
     setChosenMovie(movie);
   };
 

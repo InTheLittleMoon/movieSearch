@@ -8,7 +8,7 @@ export default function SearchBarResults({ movieArray, handleResultClick }) {
   //base image link
   let imgLink = "https://image.tmdb.org/t/p/original/";
 
-  // Render nothing if movieArray is falsey or empty
+  // Render nothing if movieArray is empty
   if (!movieArray || movieArray.length === 0) {
     return null;
   }
