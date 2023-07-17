@@ -72,6 +72,7 @@ function App() {
     let movie = await movieDataFetch(movieID);
     console.log(movie);
     setChosenMovie(movie);
+    setMovieArray([]);
   };
 
   // useEffect(() => {
