@@ -19,25 +19,35 @@ export default function Searchbar({
     return;
   };
 
-  useEffect(() => {}, []);
+  const resetInput = () => {
+    setInputVal("");
+  };
 
   return (
     <div className="searchbar-container">
       <div className="searchbar">
         <img alt="searchIcon" src={searchIcon} />
-        <input
-          type="text"
-          placeholder="Search Movies, Directors, etc."
-          value={inputVal}
-          onChange={(event) => {
-            changeInput(event);
-            handleInput(event.target.value);
+        <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            resetInput();
           }}
-        ></input>
+        >
+          <input
+            type="text"
+            placeholder="Search Movies, Directors, etc."
+            value={inputVal}
+            onChange={(event) => {
+              changeInput(event);
+              handleInput(event);
+            }}
+          ></input>
+        </form>
       </div>
       {movieArray && (
         <SearchBarResults
           movieArray={movieArray}
+          resetInput={resetInput}
           handleResultClick={handleResultClick}
         />
       )}

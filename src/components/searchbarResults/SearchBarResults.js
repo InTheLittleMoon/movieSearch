@@ -4,7 +4,11 @@ import "./SearchBarResults.css";
 //images
 import noImageAvailable from "../../assets/images/No-Image-Placeholder.svg.png";
 
-export default function SearchBarResults({ movieArray, handleResultClick }) {
+export default function SearchBarResults({
+  movieArray,
+  handleResultClick,
+  resetInput,
+}) {
   //base image link
   let imgLink = "https://image.tmdb.org/t/p/original/";
 
@@ -23,6 +27,7 @@ export default function SearchBarResults({ movieArray, handleResultClick }) {
             className="movie-result"
             onClick={() => {
               handleResultClick(movie.id);
+              resetInput();
             }}
           >
             <img

@@ -10,7 +10,6 @@ export default function MovieImageContainer({ chosenMovie }) {
 
   // deals with no poster
   let imageCheck = chosenMovie.poster_path;
-  console.log(imgLink, imageCheck);
 
   // Render nothing if chosenMovie is empty
   if (!chosenMovie || chosenMovie.length === 0) {

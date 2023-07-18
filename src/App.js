@@ -47,7 +47,6 @@ function App() {
       .then((data) => {
         console.log(data.results);
         setMovieArray(data.results);
-        console.log(movieArray);
       })
       .catch((err) => {
         console.log("Error in fetch call");
