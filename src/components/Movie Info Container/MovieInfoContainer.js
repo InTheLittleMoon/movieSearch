@@ -2,12 +2,17 @@ import React, { useEffect } from "react";
 import "./MovieInfoContainer.css";
 
 export default function MovieInfoContainer({ chosenMovie }) {
+  // Render nothing if chosenMovie is empty
+  if (!chosenMovie || chosenMovie.length === 0) {
+    return null;
+  }
+
   return (
     <div className="movie-info-container">
       <h1>{chosenMovie.title}</h1>
-      <div className="title-Info">
-        <span>{chosenMovie.release_date}</span>
-        <span>{chosenMovie.runtime}</span>
+      <div className="title-info">
+        <span>Release Date: {chosenMovie.release_date}</span>
+        <span>Runtime: {chosenMovie.runtime}</span>
       </div>
       <div className="title-genres">
         {chosenMovie &&

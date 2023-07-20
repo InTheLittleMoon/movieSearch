@@ -14,7 +14,7 @@ export default function Searchbar({
 }) {
   const [inputVal, setInputVal] = useState("");
 
-  const changeInput = (event) => {
+  const updateSearchInput = (event) => {
     setInputVal(event.target.value);
     return;
   };
@@ -38,8 +38,8 @@ export default function Searchbar({
             placeholder="Search Movies, Directors, etc."
             value={inputVal}
             onChange={(event) => {
-              changeInput(event);
-              handleInput(event);
+              updateSearchInput(event);
+              handleInput(event.target.value);
             }}
           ></input>
         </form>

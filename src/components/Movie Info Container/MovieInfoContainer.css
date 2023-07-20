@@ -1,4 +1,25 @@
 .movie-info-container {
   width: 50%;
   height: 100%;
+  margin-top: 10%;
+}
+
+.title-info span {
+  margin-right: 2%;
+}
+
+.title-genres {
+  display: flex;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.title-genres span {
+  text-align: center;
+  margin-right: 2%;
+  font-weight: bold;
+  background-color: white;
+  border-radius: 25px;
+  width: fit-content;
+  padding: 0% 1%;
 }

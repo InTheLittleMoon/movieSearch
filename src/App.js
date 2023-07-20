@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 
-//I need to be able to search for a movie by name with the movie titles being
-//displayed below the search bar with the title, release date, summary, and if
-//possible, movie picture.
+//api dock link: "https://developer.themoviedb.org/docs/getting-started"
 
 //components
 import Searchbar from "./components/searchbar/searchbar";
@@ -33,7 +31,7 @@ function App() {
   };
 
   const movieTitleFetch = async (movie) => {
-    //api dock link: "https://developer.themoviedb.org/docs/getting-started"
+    console.log(movie);
 
     //not sure if ill need this:
     // const apiReadAccessToken =
@@ -47,10 +45,12 @@ function App() {
       .then((data) => {
         console.log(data.results);
         setMovieArray(data.results);
+        return data;
       })
       .catch((err) => {
         console.log("Error in fetch call");
       });
+    return data;
   };
 
   const handleInput = (query) => {
@@ -69,14 +69,9 @@ function App() {
   //movie result clicked
   const handleResultClick = async (movieID) => {
     let movie = await movieDataFetch(movieID);
-    console.log(movie);
     setChosenMovie(movie);
     setMovieArray([]);
   };
-
-  // useEffect(() => {
-  //   movieTitleFetch();
-  // }, []);
 
   return (
     <div className="main-movie-container">
